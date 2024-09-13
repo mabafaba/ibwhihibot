@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    depends_on:
+      - mongodb
+    image: inberlinwohnenbot
+    container_name: inberlinwohnenbot-web
+    environment:
+      - DOCKER=true
+    restart: always
+  mongodb:
+    image: mongo
+    container_name: inberlinwohnenbot-mongodb
+    restart: always
+    volumes:
+      - inberlinwohnenbot-mongodb-data:/data/db
+
+volumes:
+  inberlinwohnenbot-mongodb-data:

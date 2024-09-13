@@ -1,0 +1,23 @@
+{
+  "name": "inberlinwohnenbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "docker": "docker build -t inberlinwohnenbot . && docker compose up",
+    "deploy": "git pull && docker build -t inberlinwohnenbot . && docker compose up" 
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.6.2",
+    "node-fetch": "^3.3.2",
+    "node-html-parser": "^6.1.13",
+    "nodemon": "^3.1.4",
+    "telegraf": "^4.16.3"
+  }
+}
