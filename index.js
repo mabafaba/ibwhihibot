@@ -22,10 +22,12 @@ function welcomeNewUser (bot, chatid) {
         messages.welcome , { parse_mode: 'Markdown' }
     );
     
-    // send the newest flat
-    db.latestFlat().then((data) => {
-        bot.telegram.sendMessage(chatid,messages.newFlat(data));
-    });
+    // wait a tiny bit then send the newest flat
+    setTimeout(()=>{
+        db.latestFlat().then((data) => {
+            bot.telegram.sendMessage(chatid,messages.newFlat(data));
+        });
+    }, 200);
 }
 
 // when bot is started or message received, save chat id to database and welcome new user
