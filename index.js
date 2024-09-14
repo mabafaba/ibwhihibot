@@ -25,7 +25,9 @@ function welcomeNewUser (bot, chatid) {
     // wait a tiny bit then send the newest flat
     setTimeout(()=>{
         db.latestFlat().then((data) => {
-            bot.telegram.sendMessage(chatid,messages.newFlat(data));
+            bot.telegram.sendMessage(chatid,messages.newFlat(data)
+            // markdown, disable web preview
+            , { parse_mode: 'Markdown', disable_web_page_preview: true });
         });
     }, 200);
 }
